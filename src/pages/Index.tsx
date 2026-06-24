@@ -78,6 +78,13 @@ const solutions = [
     bullets: ['Финансовые показатели конкурентов', 'Ценовое и продуктовое позиционирование', 'Точки уязвимости и возможности роста'],
   },
   {
+    icon: 'ShieldAlert',
+    title: 'Адаптация бизнеса к 115-ФЗ',
+    tag: null,
+    text: 'Помогаем выстроить финансовые потоки так, чтобы снизить риск блокировки счёта. Лизинговые платежи, хозяйственные расходы и структура расчётов — под контролем.',
+    bullets: ['Аудит текущих рисков блокировки', 'Реструктуризация платёжных потоков', 'Особенно актуально для строительства и торговли'],
+  },
+  {
     icon: 'Rocket',
     title: 'Стратегия выхода из конкуренции',
     tag: 'Новое',
@@ -171,8 +178,8 @@ const Index = () => {
               <span className="gold-text-gradient">масштабирования бизнеса?</span>
             </h1>
             <p className="animate-fade-up text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed" style={{ animationDelay: '0.2s' }}>
-              Мы не продаём один продукт. Мы подбираем лучший инструмент из шести — лизинг, кредит, субсидия,
-              банковская гарантия, налоговая оптимизация или подготовка документов.
+              Мы не продаём один продукт. Мы решаем задачи бизнеса: подбираем финансирование, снижаем налоги,
+              анализируем конкурентов и выстраиваем стратегию роста.
             </p>
 
             {/* Problem cards */}
@@ -220,8 +227,8 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mb-16">
             <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">Решения</p>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Шесть инструментов для вашего роста</h2>
-            <p className="text-muted-foreground text-lg">Один запрос — и мы сами определим, какой инструмент даст максимальный результат именно для вашей задачи.</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Решения для вашего роста</h2>
+            <p className="text-muted-foreground text-lg">Один запрос — и мы сами определим, что даст максимальный результат именно для вашей задачи.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {solutions.map((s) => (
