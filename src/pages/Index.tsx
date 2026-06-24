@@ -173,6 +173,11 @@ const Index = () => {
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
         <div className="container mx-auto flex items-center justify-between h-20 px-4">
           <a href="#hero" className="flex items-center gap-2">
+            <img
+              src="https://cdn.poehali.dev/projects/e741c96d-fd24-4581-91c1-7b809c60569b/files/1ff3465d-be4c-444c-9374-7e69c2f8d08b.jpg"
+              alt="корона"
+              className="w-9 h-9 object-contain"
+            />
             <span className="font-display text-2xl font-bold tracking-tight">
               Лизинг<span className="gold-text-gradient">Про</span>
             </span>
@@ -210,7 +215,7 @@ const Index = () => {
               Независимый брокер лизинга для бизнеса
             </p>
             <h1
-              className="animate-fade-up text-5xl md:text-7xl font-bold leading-[1.05] mb-8"
+              className="animate-fade-up text-4xl md:text-5xl font-bold leading-[1.05] mb-8"
               style={{ animationDelay: '0.1s' }}
             >
               Получите ставку по лизингу{' '}
