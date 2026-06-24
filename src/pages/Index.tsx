@@ -339,6 +339,36 @@ const Index = () => {
         </div>
       </section>
 
+      {/* SECOND OPINION OFFER */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto rounded-sm gold-border bg-card p-10 md:p-14 flex flex-col md:flex-row items-center gap-10">
+            <div className="shrink-0 w-20 h-20 rounded-sm gold-gradient flex items-center justify-center">
+              <Icon name="FileSearch" className="text-primary-foreground" size={36} />
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="font-display text-3xl md:text-4xl font-bold mb-3">
+                Уже есть график платежей? <span className="gold-text-gradient">Выбьем скидку</span>
+              </h3>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Даже если расчёт по лизингу уже на руках — пришлите его нам, и мы
+                добьёмся для вас дополнительной выгоды.
+              </p>
+            </div>
+            <Button
+              asChild
+              size="lg"
+              className="shrink-0 gold-gradient text-primary-foreground font-semibold h-14 px-8 hover:opacity-90"
+            >
+              <a href="#apply">
+                Прислать график
+                <Icon name="ArrowRight" className="ml-2" size={20} />
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* APPLY FORM */}
       <section id="apply" className="py-28">
         <div className="container mx-auto px-4">
