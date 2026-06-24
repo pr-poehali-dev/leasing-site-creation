@@ -175,18 +175,18 @@ const Index = () => {
       {/* HERO */}
       <section id="hero" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_BG})` }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/92 to-background/30" />
+        <div className="absolute inset-0 hero-dark-overlay" />
         <div className="container mx-auto relative z-10 px-4 py-24">
           <div className="max-w-3xl">
-            <p className="animate-fade-up text-gold tracking-[0.3em] uppercase text-xs mb-6">
+            <p className="animate-fade-up text-amber-400 tracking-[0.3em] uppercase text-xs mb-6">
               Центр финансирования бизнеса
             </p>
-            <h1 className="animate-fade-up text-4xl md:text-6xl font-bold leading-[1.08] mb-6" style={{ animationDelay: '0.1s' }}>
+            <h1 className="animate-fade-up text-4xl md:text-6xl font-bold leading-[1.08] mb-6 text-white" style={{ animationDelay: '0.1s' }}>
               Хотите{' '}
               <span className="gold-text-gradient">масштабировать бизнес</span>{' '}
               и выйти на новый уровень?
             </h1>
-            <p className="animate-fade-up text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed" style={{ animationDelay: '0.2s' }}>
+            <p className="animate-fade-up text-lg text-white/70 max-w-2xl mb-8 leading-relaxed" style={{ animationDelay: '0.2s' }}>
               Получаете финансирование дешевле банка, снижаете налоги, понимаете конкурентов
               и выходите на рынок с позицией, где вы — единственный выбор.
             </p>
@@ -194,25 +194,25 @@ const Index = () => {
             {/* Problem cards */}
             <div className="animate-fade-up grid grid-cols-2 gap-3 max-w-xl mb-10" style={{ animationDelay: '0.25s' }}>
               {problems.map((p) => (
-                <div key={p.text} className="flex items-start gap-3 bg-card/60 border border-border/60 rounded-sm px-4 py-3 backdrop-blur-sm">
-                  <Icon name={p.icon} className="text-gold shrink-0 mt-0.5" size={16} />
-                  <span className="text-sm text-muted-foreground leading-snug">{p.text}</span>
+                <div key={p.text} className="flex items-start gap-3 bg-white/10 border border-white/20 rounded-sm px-4 py-3 backdrop-blur-sm">
+                  <Icon name={p.icon} className="text-amber-400 shrink-0 mt-0.5" size={16} />
+                  <span className="text-sm text-white/80 leading-snug">{p.text}</span>
                 </div>
               ))}
             </div>
 
             <div className="animate-fade-up flex flex-wrap gap-4" style={{ animationDelay: '0.3s' }}>
-              <Button asChild size="lg" className="gold-gradient text-primary-foreground font-semibold text-base h-14 px-8 hover:opacity-90">
+              <Button asChild size="lg" className="gold-gradient text-white font-semibold text-base h-14 px-8 hover:opacity-90">
                 <a href="#apply">
                   Получить бесплатный разбор
                   <Icon name="ArrowRight" className="ml-2" size={20} />
                 </a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base border-border hover:border-gold hover:text-gold bg-transparent">
+              <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base border-white/40 text-white hover:border-amber-400 hover:text-amber-400 bg-transparent">
                 <a href="#solutions">Все решения</a>
               </Button>
             </div>
-            <p className="animate-fade-up mt-5 text-sm text-muted-foreground" style={{ animationDelay: '0.4s' }}>
+            <p className="animate-fade-up mt-5 text-sm text-white/50" style={{ animationDelay: '0.4s' }}>
               Консультация и подбор — бесплатно и ни к чему не обязывают
             </p>
           </div>
@@ -220,7 +220,7 @@ const Index = () => {
       </section>
 
       {/* STATS */}
-      <section className="border-y border-border/60 bg-card/40">
+      <section className="border-y border-border bg-slate-50">
         <div className="container mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-border/60">
           {stats.map((s) => (
             <div key={s.label} className="py-10 px-6 text-center">
@@ -241,7 +241,7 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {solutions.map((s) => (
-              <div key={s.title} className="group relative p-8 rounded-sm bg-card border border-border/60 hover:border-gold/50 transition-all duration-300 flex flex-col">
+              <div key={s.title} className="group relative p-8 rounded-sm bg-white border border-border hover:border-gold/60 hover:shadow-lg transition-all duration-300 flex flex-col">
                 {s.tag && (
                   <span className="absolute top-6 right-6 text-xs font-semibold px-3 py-1 rounded-full gold-gradient text-primary-foreground">
                     {s.tag}
@@ -275,7 +275,7 @@ const Index = () => {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how" className="py-28 bg-card/40 border-y border-border/60">
+      <section id="how" className="py-28 bg-slate-50 border-y border-border">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">Процесс</p>
@@ -283,7 +283,7 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((s, i) => (
-              <div key={s.n} className="relative p-8 rounded-sm bg-background border border-border/60">
+              <div key={s.n} className="relative p-8 rounded-sm bg-white border border-border shadow-sm">
                 <div className="font-display text-6xl font-bold gold-text-gradient mb-4 leading-none">{s.n}</div>
                 <h3 className="text-xl font-semibold mb-3">{s.title}</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm">{s.text}</p>
@@ -328,7 +328,7 @@ const Index = () => {
               { icon: 'Users', t: 'Любой масштаб', d: 'Доступны решения для ИП, малого бизнеса и крупных компаний по всей России.' },
               { icon: 'Globe', t: 'Вся Россия', d: 'Партнёры и государственные программы финансирования доступны в любом регионе.' },
             ].map((c) => (
-              <div key={c.t} className="flex gap-5 p-6 rounded-sm bg-card border border-border/60">
+              <div key={c.t} className="flex gap-5 p-6 rounded-sm bg-white border border-border shadow-sm">
                 <div className="shrink-0 w-12 h-12 rounded-sm gold-border flex items-center justify-center">
                   <Icon name={c.icon} className="text-gold" size={22} />
                 </div>
@@ -343,7 +343,7 @@ const Index = () => {
       </section>
 
       {/* ADVANTAGES */}
-      <section id="advantages" className="py-28 bg-card/40 border-y border-border/60">
+      <section id="advantages" className="py-28 bg-slate-50 border-y border-border">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mb-16">
             <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">Преимущества</p>
@@ -351,7 +351,7 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {advantages.map((a) => (
-              <div key={a.title} className="p-8 rounded-sm border border-border/60 bg-background hover:border-gold/40 transition-colors">
+              <div key={a.title} className="p-8 rounded-sm border border-border bg-white hover:border-gold/50 hover:shadow-md transition-all">
                 <Icon name={a.icon} className="text-gold mb-5" size={32} />
                 <h3 className="text-2xl font-semibold mb-3">{a.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{a.text}</p>
@@ -364,7 +364,7 @@ const Index = () => {
       {/* SECOND OPINION */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto rounded-sm gold-border bg-card p-10 md:p-14 flex flex-col md:flex-row items-center gap-10">
+          <div className="max-w-5xl mx-auto rounded-sm gold-border bg-white shadow-lg p-10 md:p-14 flex flex-col md:flex-row items-center gap-10">
             <div className="shrink-0 w-20 h-20 rounded-sm gold-gradient flex items-center justify-center">
               <Icon name="FileSearch" className="text-primary-foreground" size={36} />
             </div>
@@ -388,16 +388,16 @@ const Index = () => {
       </section>
 
       {/* PARTNERS */}
-      <section id="partners" className="py-28 bg-card/40 border-y border-border/60">
+      <section id="partners" className="py-28 bg-slate-50 border-y border-border">
         <div className="container mx-auto px-4 text-center">
           <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">Партнёры</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Более 60 финансовых партнёров</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-14 text-lg">
             Банки, лизинговые компании и государственные фонды — конкурируют за каждую вашу заявку.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border/60 rounded-sm overflow-hidden">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border rounded-sm overflow-hidden shadow-sm">
             {partners.map((p) => (
-              <div key={p} className="bg-background py-8 px-4 flex items-center justify-center text-muted-foreground hover:text-gold transition-colors font-display text-lg font-semibold">
+              <div key={p} className="bg-white py-8 px-4 flex items-center justify-center text-muted-foreground hover:text-gold transition-colors font-display text-lg font-semibold">
                 {p}
               </div>
             ))}
@@ -408,14 +408,14 @@ const Index = () => {
       {/* APPLY FORM */}
       <section id="apply" className="py-28">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto rounded-sm border border-gold/30 bg-card overflow-hidden grid md:grid-cols-5">
+          <div className="max-w-4xl mx-auto rounded-sm border border-gold/30 bg-white shadow-xl overflow-hidden grid md:grid-cols-5">
             <div className="md:col-span-2 gold-gradient p-10 text-primary-foreground flex flex-col justify-center">
               <h3 className="font-display text-3xl font-bold mb-4">Получить решение</h3>
               <p className="opacity-90 leading-relaxed mb-8">
                 Опишите задачу — мы подберём лучший инструмент финансирования и пришлём варианты в течение суток.
               </p>
               <ul className="space-y-3">
-                {['Консультация бесплатна', 'Сравниваем 6 инструментов', 'Ответ за 24 часа'].map((i) => (
+                {['Консультация бесплатна', 'Все варианты финансирования', 'Ответ за 24 часа'].map((i) => (
                   <li key={i} className="flex items-center gap-3">
                     <Icon name="Check" size={18} />
                     <span className="font-medium">{i}</span>
@@ -426,19 +426,19 @@ const Index = () => {
             <form onSubmit={submit} className="md:col-span-3 p-10 space-y-5">
               <div>
                 <label className="block text-sm text-muted-foreground mb-2">Ваше имя</label>
-                <Input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Иван Петров" className="bg-background border-border h-12" />
+                <Input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Иван Петров" className="bg-slate-50 border-border h-12" />
               </div>
               <div>
                 <label className="block text-sm text-muted-foreground mb-2">Телефон</label>
-                <Input required type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+7 (___) ___-__-__" className="bg-background border-border h-12" />
+                <Input required type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+7 (___) ___-__-__" className="bg-slate-50 border-border h-12" />
               </div>
               <div>
                 <label className="block text-sm text-muted-foreground mb-2">Что нужно бизнесу?</label>
-                <Input value={form.task} onChange={(e) => setForm({ ...form, task: e.target.value })} placeholder="Купить оборудование, получить кредит, субсидия..." className="bg-background border-border h-12" />
+                <Input value={form.task} onChange={(e) => setForm({ ...form, task: e.target.value })} placeholder="Купить оборудование, получить кредит, субсидия..." className="bg-slate-50 border-border h-12" />
               </div>
               <div>
                 <label className="block text-sm text-muted-foreground mb-2">Детали</label>
-                <Textarea value={form.comment} onChange={(e) => setForm({ ...form, comment: e.target.value })} placeholder="Сумма, сроки, отрасль — любые подробности помогут подобрать лучшее решение" className="bg-background border-border min-h-[90px]" />
+                <Textarea value={form.comment} onChange={(e) => setForm({ ...form, comment: e.target.value })} placeholder="Сумма, сроки, отрасль — любые подробности помогут подобрать лучшее решение" className="bg-slate-50 border-border min-h-[90px]" />
               </div>
               <Button type="submit" size="lg" className="w-full gold-gradient text-primary-foreground font-semibold h-14 hover:opacity-90">
                 Получить бесплатный разбор
@@ -449,7 +449,7 @@ const Index = () => {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-28 bg-card/40 border-y border-border/60">
+      <section id="faq" className="py-28 bg-slate-50 border-y border-border">
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="text-center mb-14">
             <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">FAQ</p>
@@ -457,7 +457,7 @@ const Index = () => {
           </div>
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((f, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="border border-border/60 rounded-sm px-6 bg-background">
+              <AccordionItem key={i} value={`item-${i}`} className="border border-border rounded-sm px-6 bg-white shadow-sm">
                 <AccordionTrigger className="text-left text-lg font-medium hover:text-gold hover:no-underline">
                   {f.q}
                 </AccordionTrigger>
@@ -471,7 +471,7 @@ const Index = () => {
       </section>
 
       {/* FOOTER */}
-      <footer id="contacts" className="py-20">
+      <footer id="contacts" className="py-20 bg-slate-900 text-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <div>
@@ -481,19 +481,19 @@ const Index = () => {
                   Центр<span className="gold-text-gradient">Финансов</span>
                 </span>
               </div>
-              <p className="text-muted-foreground leading-relaxed">
-                Независимый центр финансирования бизнеса. Подбираем лучший инструмент из шести — под вашу задачу и ситуацию.
+              <p className="text-white/50 leading-relaxed">
+                Независимый центр финансирования бизнеса. Подбираем лучшее решение под вашу задачу и ситуацию.
               </p>
             </div>
             <div className="space-y-4">
               <h4 className="font-semibold text-lg mb-2">Контакты</h4>
-              <a href="tel:+74950000000" className="flex items-center gap-3 text-muted-foreground hover:text-gold transition-colors">
+              <a href="tel:+74950000000" className="flex items-center gap-3 text-white/60 hover:text-amber-400 transition-colors">
                 <Icon name="Phone" size={18} /> +7 (495) 000-00-00
               </a>
-              <a href="mailto:info@centerfin.ru" className="flex items-center gap-3 text-muted-foreground hover:text-gold transition-colors">
+              <a href="mailto:info@centerfin.ru" className="flex items-center gap-3 text-white/60 hover:text-amber-400 transition-colors">
                 <Icon name="Mail" size={18} /> info@centerfin.ru
               </a>
-              <p className="flex items-center gap-3 text-muted-foreground">
+              <p className="flex items-center gap-3 text-white/60">
                 <Icon name="MapPin" size={18} /> Москва, Пресненская наб., 12
               </p>
             </div>
@@ -501,14 +501,14 @@ const Index = () => {
               <h4 className="font-semibold text-lg mb-4">Разделы</h4>
               <div className="grid grid-cols-2 gap-2">
                 {navLinks.map((l) => (
-                  <a key={l.href} href={l.href} className="text-muted-foreground hover:text-gold transition-colors">
+                  <a key={l.href} href={l.href} className="text-white/60 hover:text-amber-400 transition-colors">
                     {l.label}
                   </a>
                 ))}
               </div>
             </div>
           </div>
-          <div className="pt-8 border-t border-border/60 text-sm text-muted-foreground flex flex-col md:flex-row justify-between gap-4">
+          <div className="pt-8 border-t border-white/10 text-sm text-white/40 flex flex-col md:flex-row justify-between gap-4">
             <span>© 2026 ЦентрФинансов. Все права защищены.</span>
             <span>Консультация и подбор — бесплатно и ни к чему не обязывают.</span>
           </div>
