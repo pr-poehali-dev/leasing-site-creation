@@ -95,6 +95,21 @@ const advantages = [
     title: 'Знаем, кто одобрит ваш объект',
     text: 'У каждой компании — негласный фокус на типе имущества. Это видно только на большой выборке заявок. Мы знаем, кто лучше одобряет спецтехнику, кто — станки, а кто — транспорт.',
   },
+  {
+    icon: 'PiggyBank',
+    title: 'Деньги остаются в обороте',
+    text: 'Лизинг не замораживает капитал: вы сохраняете оборотные средства и направляете их в развитие бизнеса, а не в покупку активов.',
+  },
+  {
+    icon: 'Receipt',
+    title: 'Налоговая выгода',
+    text: 'Лизинговые платежи в полном объёме уменьшают налогооблагаемую базу — это легальный инструмент снижения налоговой нагрузки.',
+  },
+  {
+    icon: 'BadgeCheck',
+    title: 'Одобрение даже без идеальной истории',
+    text: 'Лизинг проще получить, чем кредит: залог — сам предмет лизинга. Мы знаем, какие компании лояльнее к молодому бизнесу и нестандартным ситуациям.',
+  },
 ];
 
 const faqs = [
@@ -117,6 +132,18 @@ const faqs = [
   {
     q: 'Что можно взять в лизинг?',
     a: 'Транспорт, спецтехнику, производственное оборудование, сельхозтехнику и коммерческую недвижимость.',
+  },
+  {
+    q: 'Есть ли налоговая выгода от лизинга?',
+    a: 'Да, и это один из главных аргументов. Лизинговые платежи в полном объёме относятся на расходы и уменьшают налогооблагаемую базу по налогу на прибыль. Кроме того, действует ускоренная амортизация с коэффициентом до 3 — актив можно полностью списать за 1–3 года вместо обычных 10–15 лет.',
+  },
+  {
+    q: 'Одобрят ли лизинг, если у компании небольшая история?',
+    a: 'В большинстве случаев — да. Лизинг проще получить, чем банковский кредит: залогом служит сам предмет лизинга, а не ваши активы. Мы знаем, какие из 60+ компаний наиболее лояльны к молодому бизнесу или нестандартным ситуациям, и направим вашу заявку именно к ним.',
+  },
+  {
+    q: 'Чем опасна плавающая ставка по лизингу?',
+    a: 'При плавающей ставке ваши ежемесячные платежи привязаны к ключевой ставке ЦБ. Если ЦБ поднимает ставку — ваши платежи автоматически растут. Мы отслеживаем условия каждой компании и заранее предупреждаем, где скрыт такой риск.',
   },
 ];
 
@@ -175,21 +202,22 @@ const Index = () => {
         <div className="container mx-auto relative z-10 px-4 py-24">
           <div className="max-w-3xl">
             <p className="animate-fade-up text-gold tracking-[0.3em] uppercase text-xs mb-6">
-              Финансирование для бизнеса
+              Независимый брокер лизинга для бизнеса
             </p>
             <h1
               className="animate-fade-up text-5xl md:text-7xl font-bold leading-[1.05] mb-8"
               style={{ animationDelay: '0.1s' }}
             >
-              Лизинг со ставкой ниже{' '}
-              <span className="gold-text-gradient">на 1–3%</span> от банка
+              Получите ставку по лизингу{' '}
+              <span className="gold-text-gradient">ниже банка на 1–3%</span>
             </h1>
             <p
               className="animate-fade-up text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed"
               style={{ animationDelay: '0.2s' }}
             >
-              Более 60 компаний будут бороться за вашу заявку, улучшая условия для
-              вас. Задаток от 20% стоимости. Решение в течение суток.
+              Один запрос — и более 60 лизинговых компаний соревнуются за ваш бизнес,
+              предлагая лучшие условия. Деньги остаются в обороте, платежи снижают
+              налогооблагаемую базу. Решение за 24 часа.
             </p>
             <div
               className="animate-fade-up flex flex-wrap gap-4"
@@ -214,6 +242,9 @@ const Index = () => {
                 <a href="#services">Наши услуги</a>
               </Button>
             </div>
+            <p className="animate-fade-up mt-6 text-sm text-muted-foreground" style={{ animationDelay: '0.4s' }}>
+              Подбор бесплатен и ни к чему не обязывает
+            </p>
           </div>
         </div>
       </section>
@@ -324,6 +355,59 @@ const Index = () => {
                 <p className="text-muted-foreground leading-relaxed">{a.text}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LEASING VS BUYING */}
+      <section className="py-28 bg-card/40 border-y border-border/60">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">Сравнение</p>
+            <h2 className="text-4xl md:text-5xl font-bold">Лизинг vs Покупка</h2>
+            <p className="text-muted-foreground mt-4 text-lg max-w-2xl mx-auto">
+              Почему ведущий бизнес выбирает лизинг, а не прямую покупку
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+            <div className="rounded-sm border border-border/60 bg-background overflow-hidden">
+              <div className="bg-muted/50 px-8 py-5 border-b border-border/60">
+                <h3 className="text-xl font-semibold text-muted-foreground">Покупка за свои средства</h3>
+              </div>
+              <ul className="divide-y divide-border/60">
+                {[
+                  'Капитал заморожен в активе',
+                  'Налог на имущество с первого дня',
+                  'Полная амортизация — годами',
+                  'Одобрение через банк — долго и сложно',
+                  'Нет налоговой оптимизации',
+                ].map((item) => (
+                  <li key={item} className="px-8 py-4 flex items-center gap-4 text-muted-foreground">
+                    <Icon name="X" className="text-destructive shrink-0" size={18} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-sm border border-gold/40 bg-background overflow-hidden">
+              <div className="gold-gradient px-8 py-5">
+                <h3 className="text-xl font-semibold text-primary-foreground">Лизинг через нас</h3>
+              </div>
+              <ul className="divide-y divide-border/60">
+                {[
+                  'Оборотные средства остаются в бизнесе',
+                  'Ускоренная амортизация — выгода за 1–3 года',
+                  'Платежи снижают налогооблагаемую базу',
+                  'Залог — сам предмет лизинга, не ваши активы',
+                  'Ставка ниже банка на 1–3% через нас',
+                ].map((item) => (
+                  <li key={item} className="px-8 py-4 flex items-center gap-4">
+                    <Icon name="Check" className="text-gold shrink-0" size={18} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
