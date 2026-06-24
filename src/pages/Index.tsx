@@ -14,9 +14,12 @@ import { toast } from 'sonner';
 const HERO_BG =
   'https://cdn.poehali.dev/projects/e741c96d-fd24-4581-91c1-7b809c60569b/files/eb1e1501-254b-4f03-9f4a-f0007efcc487.jpg';
 
+const CROWN =
+  'https://cdn.poehali.dev/projects/e741c96d-fd24-4581-91c1-7b809c60569b/files/1ff3465d-be4c-444c-9374-7e69c2f8d08b.jpg';
+
 const navLinks = [
-  { label: 'Главная', href: '#hero' },
-  { label: 'Услуги', href: '#services' },
+  { label: 'Решения', href: '#solutions' },
+  { label: 'Как мы работаем', href: '#how' },
   { label: 'О нас', href: '#about' },
   { label: 'Преимущества', href: '#advantages' },
   { label: 'Партнёры', href: '#partners' },
@@ -24,132 +27,88 @@ const navLinks = [
   { label: 'Контакты', href: '#contacts' },
 ];
 
-const stats = [
-  { value: '1–3%', label: 'выгода по ставке относительно банка' },
-  { value: '60+', label: 'компаний борются за вашу заявку' },
-  { value: 'от 20%', label: 'минимальный задаток' },
-  { value: '24 часа', label: 'на решение по заявке' },
+const problems = [
+  { icon: 'Package', text: 'Нужно купить оборудование для масштабирования?' },
+  { icon: 'Truck', text: 'Требуется транспорт или спецтехника для роста?' },
+  { icon: 'Building2', text: 'Нужны средства на расширение производства?' },
+  { icon: 'TrendingUp', text: 'Хотите снизить налоговую нагрузку законно?' },
 ];
 
-const services = [
+const solutions = [
   {
-    icon: 'Truck',
-    title: 'Лизинг транспорта',
-    text: 'Легковой, грузовой и коммерческий транспорт на выгодных условиях.',
+    icon: 'Landmark',
+    title: 'Лизинг',
+    tag: 'Популярно',
+    text: 'Получите оборудование, транспорт или технику без замораживания капитала. Ставка ниже банка на 1–3%, задаток от 20%, решение за сутки.',
+    bullets: ['60+ компаний борются за вашу заявку', 'Ускоренная амортизация', 'Снижение налога на прибыль'],
   },
   {
-    icon: 'Factory',
-    title: 'Лизинг оборудования',
-    text: 'Производственные линии, станки и промышленное оборудование.',
+    icon: 'Banknote',
+    title: 'Бизнес-кредит',
+    tag: null,
+    text: 'Подберём кредит на развитие бизнеса на лучших условиях среди банков-партнёров — без лишних визитов и бумаг.',
+    bullets: ['Сравниваем 20+ банков', 'Без залога — до 10 млн ₽', 'Решение за 3 рабочих дня'],
   },
   {
-    icon: 'Tractor',
-    title: 'Спецтехника и агро',
-    text: 'Сельхозтехника, строительная и дорожная спецтехника.',
-  },
-  {
-    icon: 'Building2',
-    title: 'Лизинг недвижимости',
-    text: 'Коммерческие помещения, склады и офисные пространства.',
-  },
-];
-
-const advantages = [
-  {
-    icon: 'TrendingDown',
-    title: 'Ставка ниже банка',
-    text: 'Каждый процент к ставке — это +5–10% к вашей рентабельности. Мы снижаем её на 1–3%.',
-  },
-  {
-    icon: 'Gavel',
-    title: 'Аукцион за вашу заявку',
-    text: 'Более 60 лизинговых компаний конкурируют, улучшая условия именно для вас.',
-  },
-  {
-    icon: 'Wallet',
-    title: 'Задаток от 20%',
-    text: 'Минимальный первоначальный взнос сохраняет ваши оборотные средства.',
-  },
-  {
-    icon: 'Clock',
-    title: 'Решение за сутки',
-    text: 'Получите одобрение и лучшие предложения в течение 24 часов.',
-  },
-  {
-    icon: 'Handshake',
-    title: 'Партнёрская сеть',
-    text: 'Прямые соглашения с лизингодателями дают доступ к закрытым условиям.',
+    icon: 'Landmark',
+    title: 'Субсидия от государства',
+    tag: 'Бесплатно',
+    text: 'Многие предприниматели не знают, что могут получить деньги от государства. Мы находим подходящие программы и помогаем пройти отбор.',
+    bullets: ['Гранты МСП до 25 млн ₽', 'Льготные займы от 1–3%', 'Региональные программы'],
   },
   {
     icon: 'ShieldCheck',
-    title: 'Сопровождение сделки',
-    text: 'Ведём вас от заявки до подписания договора и передачи имущества.',
-  },
-  {
-    icon: 'AlertTriangle',
-    title: 'Никаких сюрпризов по ставке',
-    text: 'Мы знаем, где плавающая ставка, а где фиксированная. Защитим вас от неожиданного роста платежей при повышении ставки ЦБ.',
-  },
-  {
-    icon: 'Crosshair',
-    title: 'Знаем, кто одобрит ваш объект',
-    text: 'У каждой компании — негласный фокус на типе имущества. Это видно только на большой выборке заявок. Мы знаем, кто лучше одобряет спецтехнику, кто — станки, а кто — транспорт.',
-  },
-  {
-    icon: 'PiggyBank',
-    title: 'Деньги остаются в обороте',
-    text: 'Лизинг не замораживает капитал: вы сохраняете оборотные средства и направляете их в развитие бизнеса, а не в покупку активов.',
+    title: 'Банковская гарантия',
+    tag: null,
+    text: 'Нужна гарантия для участия в тендере или исполнения контракта? Оформим быстро через партнёрские банки.',
+    bullets: ['44-ФЗ и 223-ФЗ', 'Оформление за 1–2 дня', 'Лучший тариф на рынке'],
   },
   {
     icon: 'Receipt',
-    title: 'Налоговая выгода',
-    text: 'Лизинговые платежи в полном объёме уменьшают налогооблагаемую базу — это легальный инструмент снижения налоговой нагрузки.',
+    title: 'Оптимизация налогов',
+    tag: null,
+    text: 'Используем лизинг, амортизацию и законные инструменты для снижения налоговой нагрузки вашего бизнеса.',
+    bullets: ['Ускоренная амортизация до 3х', 'Лизинг снижает налог на прибыль', 'Защита от 115-ФЗ'],
   },
   {
-    icon: 'BadgeCheck',
-    title: 'Одобрение даже без идеальной истории',
-    text: 'Лизинг проще получить, чем кредит: залог — сам предмет лизинга. Мы знаем, какие компании лояльнее к молодому бизнесу и нестандартным ситуациям.',
-  },
-  {
-    icon: 'ShieldAlert',
-    title: 'Защита от блокировки по 115-ФЗ',
-    text: 'Лизинговые платежи проходят в банках как хозяйственные расходы. Высокий объём таких трат снижает риск блокировки счёта. Особенно актуально для строительных компаний.',
+    icon: 'FileText',
+    title: 'Подготовка документов',
+    tag: null,
+    text: 'Подготовим полный пакет документов для банков, лизинговых компаний и государственных программ.',
+    bullets: ['Финансовая модель', 'Бизнес-план под программу', 'Сопровождение до выдачи'],
   },
 ];
 
+const stats = [
+  { value: '6', label: 'инструментов финансирования' },
+  { value: '60+', label: 'партнёров-финансистов' },
+  { value: '24 ч', label: 'среднее время первого ответа' },
+  { value: '0 ₽', label: 'стоимость подбора решения' },
+];
+
+const steps = [
+  { n: '01', title: 'Расскажите о задаче', text: 'Звонок или заявка — опишите, что нужно бизнесу. Без сложных форм и лишних бумаг.' },
+  { n: '02', title: 'Получите анализ вариантов', text: 'Мы подбираем оптимальный инструмент: лизинг, кредит, субсидия или их комбинацию.' },
+  { n: '03', title: 'Выбираете лучшее предложение', text: '60+ партнёров конкурируют за вашу заявку. Вы выбираете из лучших условий.' },
+  { n: '04', title: 'Получаете финансирование', text: 'Сопровождаем до выдачи денег или имущества. Без скрытых комиссий.' },
+];
+
+const advantages = [
+  { icon: 'Compass', title: 'Независимый советник', text: 'Мы не продаём один продукт — мы подбираем лучшее из 6 инструментов. Наш интерес: ваш результат.' },
+  { icon: 'TrendingDown', title: 'Ставка ниже рынка', text: 'По лизингу и кредиту — на 1–3% дешевле благодаря партнёрским условиям. Каждый процент — +5–10% к рентабельности.' },
+  { icon: 'Gavel', title: 'Аукцион за вашу заявку', text: 'Более 60 финансовых компаний конкурируют за каждого клиента. Вы выбираете, не торгуясь.' },
+  { icon: 'AlertTriangle', title: 'Никаких сюрпризов', text: 'Знаем, где плавающая ставка, а где фиксированная. Защищаем от роста платежей при повышении ставки ЦБ.' },
+  { icon: 'Crosshair', title: 'Знаем, кто одобрит', text: 'Каждая компания негласно фокусируется на своём типе объектов. Мы направляем заявку туда, где шанс максимален.' },
+  { icon: 'ShieldAlert', title: 'Защита от 115-ФЗ', text: 'Лизинговые платежи — хозяйственные расходы. Высокий объём снижает риск блокировки счёта. Актуально для строителей.' },
+];
+
 const faqs = [
-  {
-    q: 'Сколько стоят ваши услуги?',
-    a: 'Подбор предложений бесплатен. Мы зарабатываем на партнёрских условиях с лизинговыми компаниями и заинтересованы дать вам минимальную ставку.',
-  },
-  {
-    q: 'За счёт чего ставка ниже банковской?',
-    a: 'Благодаря нашему партнёрству и конкуренции более 60 лизинговых компаний за каждую заявку. Они борются за клиента, улучшая условия на 1–3%.',
-  },
-  {
-    q: 'Какой минимальный задаток?',
-    a: 'Первоначальный взнос — от 20% стоимости предмета лизинга. Точные условия зависят от объекта и компании-лизингодателя.',
-  },
-  {
-    q: 'Как быстро я получу решение?',
-    a: 'Предварительное решение и подборку предложений вы получаете в течение суток после подачи заявки.',
-  },
-  {
-    q: 'Что можно взять в лизинг?',
-    a: 'Транспорт, спецтехнику, производственное оборудование, сельхозтехнику и коммерческую недвижимость.',
-  },
-  {
-    q: 'Есть ли налоговая выгода от лизинга?',
-    a: 'Да, и это один из главных аргументов. Лизинговые платежи в полном объёме относятся на расходы и уменьшают налогооблагаемую базу по налогу на прибыль. Кроме того, действует ускоренная амортизация с коэффициентом до 3 — актив можно полностью списать за 1–3 года вместо обычных 10–15 лет.',
-  },
-  {
-    q: 'Одобрят ли лизинг, если у компании небольшая история?',
-    a: 'В большинстве случаев — да. Лизинг проще получить, чем банковский кредит: залогом служит сам предмет лизинга, а не ваши активы. Мы знаем, какие из 60+ компаний наиболее лояльны к молодому бизнесу или нестандартным ситуациям, и направим вашу заявку именно к ним.',
-  },
-  {
-    q: 'Чем опасна плавающая ставка по лизингу?',
-    a: 'При плавающей ставке ваши ежемесячные платежи привязаны к ключевой ставке ЦБ. Если ЦБ поднимает ставку — ваши платежи автоматически растут. Мы отслеживаем условия каждой компании и заранее предупреждаем, где скрыт такой риск.',
-  },
+  { q: 'Сколько стоят ваши услуги?', a: 'Подбор решения и консультация — бесплатно. Мы зарабатываем на партнёрских условиях с банками и лизинговыми компаниями, поэтому заинтересованы в лучших условиях для вас.' },
+  { q: 'Как понять, что мне подойдёт — лизинг или кредит?', a: 'Это зависит от задачи: лизинг выгоднее при покупке имущества (оборудование, транспорт, техника), кредит — при потребности в оборотных средствах. Мы всегда анализируем оба варианта и подбираем оптимальный.' },
+  { q: 'Есть ли налоговая выгода?', a: 'Да. Лизинговые платежи полностью относятся на расходы и уменьшают налог на прибыль. Действует ускоренная амортизация с коэффициентом до 3 — актив списывается за 1–3 года вместо 10–15.' },
+  { q: 'Одобрят ли финансирование молодой компании?', a: 'В большинстве случаев — да. По лизингу залог — сам предмет, не ваши активы. Мы знаем, какие из 60+ партнёров наиболее лояльны к молодому бизнесу, и направляем заявку именно к ним.' },
+  { q: 'Какие государственные субсидии доступны?', a: 'Зависит от региона, отрасли и размера бизнеса. Есть гранты МСП до 25 млн ₽, льготные займы от 1–3%, программы Корпорации МСП и региональные фонды. Мы находим то, что реально доступно вашей компании.' },
+  { q: 'Как быстро получу решение?', a: 'Первый ответ с вариантами финансирования — в течение суток. По лизингу и кредиту предварительное одобрение — от 1 до 3 рабочих дней.' },
 ];
 
 const partners = [
@@ -159,101 +118,80 @@ const partners = [
 ];
 
 const Index = () => {
-  const [form, setForm] = useState({ name: '', phone: '', amount: '', comment: '' });
+  const [form, setForm] = useState({ name: '', phone: '', task: '', comment: '' });
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Заявка отправлена! Свяжемся с вами в течение суток.');
-    setForm({ name: '', phone: '', amount: '', comment: '' });
+    toast.success('Заявка принята! Свяжемся в течение суток с вариантами финансирования.');
+    setForm({ name: '', phone: '', task: '', comment: '' });
   };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+
       {/* NAV */}
-      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
+      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/60">
         <div className="container mx-auto flex items-center justify-between h-20 px-4">
-          <a href="#hero" className="flex items-center gap-2">
-            <img
-              src="https://cdn.poehali.dev/projects/e741c96d-fd24-4581-91c1-7b809c60569b/files/1ff3465d-be4c-444c-9374-7e69c2f8d08b.jpg"
-              alt="корона"
-              className="w-9 h-9 object-contain"
-            />
+          <a href="#hero" className="flex items-center gap-2.5">
+            <img src={CROWN} alt="корона" className="w-9 h-9 object-contain" />
             <span className="font-display text-2xl font-bold tracking-tight">
-              Лизинг<span className="gold-text-gradient">Про</span>
+              Центр<span className="gold-text-gradient">Финансов</span>
             </span>
           </a>
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="text-sm text-muted-foreground hover:text-gold transition-colors"
-              >
+              <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-gold transition-colors">
                 {l.label}
               </a>
             ))}
           </nav>
           <Button asChild className="gold-gradient text-primary-foreground font-semibold hover:opacity-90">
-            <a href="#apply">Оставить заявку</a>
+            <a href="#apply">Получить решение</a>
           </Button>
         </div>
       </header>
 
       {/* HERO */}
-      <section
-        id="hero"
-        className="relative min-h-screen flex items-center pt-20 overflow-hidden"
-      >
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${HERO_BG})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
+      <section id="hero" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_BG})` }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/92 to-background/30" />
         <div className="container mx-auto relative z-10 px-4 py-24">
           <div className="max-w-3xl">
             <p className="animate-fade-up text-gold tracking-[0.3em] uppercase text-xs mb-6">
-              Независимый брокер лизинга для бизнеса
+              Центр финансирования бизнеса
             </p>
-            <h1
-              className="animate-fade-up text-4xl md:text-5xl font-bold leading-[1.05] mb-8"
-              style={{ animationDelay: '0.1s' }}
-            >
-              Получите ставку по лизингу{' '}
-              <span className="gold-text-gradient">ниже банка на 1–3%</span>
+            <h1 className="animate-fade-up text-4xl md:text-6xl font-bold leading-[1.08] mb-6" style={{ animationDelay: '0.1s' }}>
+              Нужно купить оборудование для{' '}
+              <span className="gold-text-gradient">масштабирования бизнеса?</span>
             </h1>
-            <p
-              className="animate-fade-up text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed"
-              style={{ animationDelay: '0.2s' }}
-            >
-              Один запрос — и более 60 лизинговых компаний соревнуются за ваш бизнес,
-              предлагая лучшие условия. Деньги остаются в обороте, платежи снижают
-              налогооблагаемую базу. Решение за 24 часа.
+            <p className="animate-fade-up text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed" style={{ animationDelay: '0.2s' }}>
+              Мы не продаём один продукт. Мы подбираем лучший инструмент из шести — лизинг, кредит, субсидия,
+              банковская гарантия, налоговая оптимизация или подготовка документов.
             </p>
-            <div
-              className="animate-fade-up flex flex-wrap gap-4"
-              style={{ animationDelay: '0.3s' }}
-            >
-              <Button
-                asChild
-                size="lg"
-                className="gold-gradient text-primary-foreground font-semibold text-base h-14 px-8 hover:opacity-90"
-              >
+
+            {/* Problem cards */}
+            <div className="animate-fade-up grid grid-cols-2 gap-3 max-w-xl mb-10" style={{ animationDelay: '0.25s' }}>
+              {problems.map((p) => (
+                <div key={p.text} className="flex items-start gap-3 bg-card/60 border border-border/60 rounded-sm px-4 py-3 backdrop-blur-sm">
+                  <Icon name={p.icon} className="text-gold shrink-0 mt-0.5" size={16} />
+                  <span className="text-sm text-muted-foreground leading-snug">{p.text}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="animate-fade-up flex flex-wrap gap-4" style={{ animationDelay: '0.3s' }}>
+              <Button asChild size="lg" className="gold-gradient text-primary-foreground font-semibold text-base h-14 px-8 hover:opacity-90">
                 <a href="#apply">
-                  Получить лучшие условия
+                  Получить бесплатный разбор
                   <Icon name="ArrowRight" className="ml-2" size={20} />
                 </a>
               </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="h-14 px-8 text-base border-border hover:border-gold hover:text-gold bg-transparent"
-              >
-                <a href="#services">Наши услуги</a>
+              <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base border-border hover:border-gold hover:text-gold bg-transparent">
+                <a href="#solutions">Все решения</a>
               </Button>
             </div>
-            <p className="animate-fade-up mt-6 text-sm text-muted-foreground" style={{ animationDelay: '0.4s' }}>
-              Подбор бесплатен и ни к чему не обязывает
+            <p className="animate-fade-up mt-5 text-sm text-muted-foreground" style={{ animationDelay: '0.4s' }}>
+              Консультация и подбор — бесплатно и ни к чему не обязывают
             </p>
           </div>
         </div>
@@ -264,41 +202,82 @@ const Index = () => {
         <div className="container mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-border/60">
           {stats.map((s) => (
             <div key={s.label} className="py-10 px-6 text-center">
-              <div className="font-display text-4xl md:text-5xl font-bold gold-text-gradient mb-3">
-                {s.value}
-              </div>
+              <div className="font-display text-4xl md:text-5xl font-bold gold-text-gradient mb-3">{s.value}</div>
               <div className="text-sm text-muted-foreground leading-snug">{s.label}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section id="services" className="py-28">
+      {/* SOLUTIONS */}
+      <section id="solutions" className="py-28">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mb-16">
-            <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">Услуги</p>
-            <h2 className="text-4xl md:text-5xl font-bold">Что мы оформляем в лизинг</h2>
+            <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">Решения</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Шесть инструментов для вашего роста</h2>
+            <p className="text-muted-foreground text-lg">Один запрос — и мы сами определим, какой инструмент даст максимальный результат именно для вашей задачи.</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((s) => (
-              <div
-                key={s.title}
-                className="group p-8 rounded-sm bg-card border border-border/60 hover:border-gold/50 transition-all duration-300"
-              >
-                <div className="w-14 h-14 rounded-sm gold-gradient flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Icon name={s.icon} className="text-primary-foreground" size={26} />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {solutions.map((s) => (
+              <div key={s.title} className="group relative p-8 rounded-sm bg-card border border-border/60 hover:border-gold/50 transition-all duration-300 flex flex-col">
+                {s.tag && (
+                  <span className="absolute top-6 right-6 text-xs font-semibold px-3 py-1 rounded-full gold-gradient text-primary-foreground">
+                    {s.tag}
+                  </span>
+                )}
+                <div className="w-13 h-13 w-14 h-14 rounded-sm gold-gradient flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shrink-0">
+                  <Icon name={s.icon} className="text-primary-foreground" size={24} />
                 </div>
                 <h3 className="text-2xl font-semibold mb-3">{s.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{s.text}</p>
+                <p className="text-muted-foreground leading-relaxed mb-5 flex-1">{s.text}</p>
+                <ul className="space-y-2">
+                  {s.bullets.map((b) => (
+                    <li key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Icon name="Check" className="text-gold shrink-0" size={14} />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Button asChild size="lg" className="gold-gradient text-primary-foreground font-semibold h-14 px-10 hover:opacity-90">
+              <a href="#apply">
+                Узнать, что подойдёт мне
+                <Icon name="ArrowRight" className="ml-2" size={20} />
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section id="how" className="py-28 bg-card/40 border-y border-border/60">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">Процесс</p>
+            <h2 className="text-4xl md:text-5xl font-bold">Как мы работаем</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {steps.map((s, i) => (
+              <div key={s.n} className="relative p-8 rounded-sm bg-background border border-border/60">
+                <div className="font-display text-6xl font-bold gold-text-gradient mb-4 leading-none">{s.n}</div>
+                <h3 className="text-xl font-semibold mb-3">{s.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">{s.text}</p>
+                {i < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-3 z-10">
+                    <Icon name="ChevronRight" className="text-gold" size={20} />
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ABOUT / MISSION */}
-      <section id="about" className="py-28 bg-card/40 border-y border-border/60">
+      {/* ABOUT */}
+      <section id="about" className="py-28">
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">О нас</p>
@@ -307,33 +286,27 @@ const Index = () => {
             </h2>
             <div className="space-y-5 text-muted-foreground leading-relaxed text-lg">
               <p>
-                Средняя рентабельность бизнеса в США в 2–4 раза выше, чем в России, а
-                по некоторым направлениям, например в сельском хозяйстве, выше в 30
-                раз. Во многом это достигается низкими ставками финансирования и
-                доступностью денежных ресурсов.
+                Средняя рентабельность бизнеса в США в 2–4 раза выше, чем в России. Во многом это достигается
+                низкими ставками финансирования и доступностью денежных ресурсов.
               </p>
               <p>
-                Мы не можем повлиять на размер процентных ставок, но можем помочь вам
-                получить{' '}
-                <span className="text-gold font-medium">
-                  самые выгодные условия лизинга
-                </span>{' '}
-                на территории России.
+                Мы не можем изменить ставку ЦБ. Но мы можем помочь вашему бизнесу получить{' '}
+                <span className="text-gold font-medium">лучший инструмент финансирования</span> на рынке —
+                будь то лизинг, кредит или государственная субсидия.
               </p>
               <p>
-                Каждый процент к ставке — это обычно +5–10% к вашей рентабельности.
-                Если с нами вы получите ставку ниже на 1–3%, то мы просто обязаны этим
-                заниматься.
+                Каждый процент к ставке — это +5–10% к вашей рентабельности. Если с нами вы получите
+                условия лучше на 1–3%, то мы просто обязаны этим заниматься.
               </p>
             </div>
           </div>
           <div className="grid gap-5">
             {[
-              { icon: 'Target', t: 'Фокус на выгоде', d: 'Снижаем вашу ставку на 1–3% за счёт партнёрской сети.' },
-              { icon: 'Users', t: 'Опытная команда', d: 'Сопровождаем сделки бизнеса любого масштаба.' },
-              { icon: 'Globe', t: 'Вся Россия', d: 'Работаем с компаниями по всей территории страны.' },
+              { icon: 'Compass', t: 'Независимый подбор', d: 'Не привязаны к одному продукту — ищем лучшее из шести инструментов.' },
+              { icon: 'Users', t: 'Опытная команда', d: 'Работаем с компаниями любого масштаба — от ИП до крупного бизнеса.' },
+              { icon: 'Globe', t: 'Вся Россия', d: 'Партнёры и программы финансирования по всей территории страны.' },
             ].map((c) => (
-              <div key={c.t} className="flex gap-5 p-6 rounded-sm bg-background border border-border/60">
+              <div key={c.t} className="flex gap-5 p-6 rounded-sm bg-card border border-border/60">
                 <div className="shrink-0 w-12 h-12 rounded-sm gold-border flex items-center justify-center">
                   <Icon name={c.icon} className="text-gold" size={22} />
                 </div>
@@ -348,7 +321,7 @@ const Index = () => {
       </section>
 
       {/* ADVANTAGES */}
-      <section id="advantages" className="py-28">
+      <section id="advantages" className="py-28 bg-card/40 border-y border-border/60">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mb-16">
             <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">Преимущества</p>
@@ -356,10 +329,7 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {advantages.map((a) => (
-              <div
-                key={a.title}
-                className="p-8 rounded-sm border border-border/60 hover:bg-card transition-colors"
-              >
+              <div key={a.title} className="p-8 rounded-sm border border-border/60 bg-background hover:border-gold/40 transition-colors">
                 <Icon name={a.icon} className="text-gold mb-5" size={32} />
                 <h3 className="text-2xl font-semibold mb-3">{a.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{a.text}</p>
@@ -369,81 +339,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* LEASING VS BUYING */}
-      <section className="py-28 bg-card/40 border-y border-border/60">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">Сравнение</p>
-            <h2 className="text-4xl md:text-5xl font-bold">Лизинг vs Покупка</h2>
-            <p className="text-muted-foreground mt-4 text-lg max-w-2xl mx-auto">
-              Почему ведущий бизнес выбирает лизинг, а не прямую покупку
-            </p>
-          </div>
-          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
-            <div className="rounded-sm border border-border/60 bg-background overflow-hidden">
-              <div className="bg-muted/50 px-8 py-5 border-b border-border/60">
-                <h3 className="text-xl font-semibold text-muted-foreground">Покупка за свои средства</h3>
-              </div>
-              <ul className="divide-y divide-border/60">
-                {[
-                  'Капитал заморожен в активе',
-                  'Налог на имущество с первого дня',
-                  'Полная амортизация — годами',
-                  'Одобрение через банк — долго и сложно',
-                  'Нет налоговой оптимизации',
-                ].map((item) => (
-                  <li key={item} className="px-8 py-4 flex items-center gap-4 text-muted-foreground">
-                    <Icon name="X" className="text-destructive shrink-0" size={18} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-sm border border-gold/40 bg-background overflow-hidden">
-              <div className="gold-gradient px-8 py-5">
-                <h3 className="text-xl font-semibold text-primary-foreground">Лизинг через нас</h3>
-              </div>
-              <ul className="divide-y divide-border/60">
-                {[
-                  'Оборотные средства остаются в бизнесе',
-                  'Ускоренная амортизация — выгода за 1–3 года',
-                  'Платежи снижают налогооблагаемую базу',
-                  'Залог — сам предмет лизинга, не ваши активы',
-                  'Ставка ниже банка на 1–3% через нас',
-                ].map((item) => (
-                  <li key={item} className="px-8 py-4 flex items-center gap-4">
-                    <Icon name="Check" className="text-gold shrink-0" size={18} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PARTNERS */}
-      <section id="partners" className="py-28 bg-card/40 border-y border-border/60">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">Партнёры</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Более 60 лизинговых компаний</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-14 text-lg">
-            Они конкурируют за вашу заявку, улучшая условия именно для вас.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border/60 rounded-sm overflow-hidden">
-            {partners.map((p) => (
-              <div
-                key={p}
-                className="bg-background py-8 px-4 flex items-center justify-center text-muted-foreground hover:text-gold transition-colors font-display text-lg font-semibold"
-              >
-                {p}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECOND OPINION OFFER */}
+      {/* SECOND OPINION */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto rounded-sm gold-border bg-card p-10 md:p-14 flex flex-col md:flex-row items-center gap-10">
@@ -452,18 +348,14 @@ const Index = () => {
             </div>
             <div className="flex-1 text-center md:text-left">
               <h3 className="font-display text-3xl md:text-4xl font-bold mb-3">
-                Уже есть график платежей? <span className="gold-text-gradient">Выбьем скидку</span>
+                Уже есть график платежей?{' '}
+                <span className="gold-text-gradient">Выбьем скидку</span>
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Даже если расчёт по лизингу уже на руках — пришлите его нам, и мы
-                добьёмся для вас дополнительной выгоды.
+                Даже если расчёт по лизингу уже на руках — пришлите его нам, и мы добьёмся для вас дополнительной выгоды.
               </p>
             </div>
-            <Button
-              asChild
-              size="lg"
-              className="shrink-0 gold-gradient text-primary-foreground font-semibold h-14 px-8 hover:opacity-90"
-            >
+            <Button asChild size="lg" className="shrink-0 gold-gradient text-primary-foreground font-semibold h-14 px-8 hover:opacity-90">
               <a href="#apply">
                 Прислать график
                 <Icon name="ArrowRight" className="ml-2" size={20} />
@@ -473,18 +365,35 @@ const Index = () => {
         </div>
       </section>
 
+      {/* PARTNERS */}
+      <section id="partners" className="py-28 bg-card/40 border-y border-border/60">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">Партнёры</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Более 60 финансовых партнёров</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-14 text-lg">
+            Банки, лизинговые компании и государственные фонды — конкурируют за каждую вашу заявку.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border/60 rounded-sm overflow-hidden">
+            {partners.map((p) => (
+              <div key={p} className="bg-background py-8 px-4 flex items-center justify-center text-muted-foreground hover:text-gold transition-colors font-display text-lg font-semibold">
+                {p}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* APPLY FORM */}
       <section id="apply" className="py-28">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto rounded-sm border border-gold/30 bg-card overflow-hidden grid md:grid-cols-5">
             <div className="md:col-span-2 gold-gradient p-10 text-primary-foreground flex flex-col justify-center">
-              <h3 className="font-display text-3xl font-bold mb-4">Онлайн-заявка</h3>
+              <h3 className="font-display text-3xl font-bold mb-4">Получить решение</h3>
               <p className="opacity-90 leading-relaxed mb-8">
-                Заполните форму — и более 60 компаний начнут бороться за лучшие
-                условия для вас. Решение в течение суток.
+                Опишите задачу — мы подберём лучший инструмент финансирования и пришлём варианты в течение суток.
               </p>
               <ul className="space-y-3">
-                {['Бесплатный подбор', 'Ставка ниже на 1–3%', 'Ответ за 24 часа'].map((i) => (
+                {['Консультация бесплатна', 'Сравниваем 6 инструментов', 'Ответ за 24 часа'].map((i) => (
                   <li key={i} className="flex items-center gap-3">
                     <Icon name="Check" size={18} />
                     <span className="font-medium">{i}</span>
@@ -495,53 +404,22 @@ const Index = () => {
             <form onSubmit={submit} className="md:col-span-3 p-10 space-y-5">
               <div>
                 <label className="block text-sm text-muted-foreground mb-2">Ваше имя</label>
-                <Input
-                  required
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  placeholder="Иван Петров"
-                  className="bg-background border-border h-12"
-                />
+                <Input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Иван Петров" className="bg-background border-border h-12" />
               </div>
               <div>
                 <label className="block text-sm text-muted-foreground mb-2">Телефон</label>
-                <Input
-                  required
-                  type="tel"
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  placeholder="+7 (___) ___-__-__"
-                  className="bg-background border-border h-12"
-                />
+                <Input required type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+7 (___) ___-__-__" className="bg-background border-border h-12" />
               </div>
               <div>
-                <label className="block text-sm text-muted-foreground mb-2">
-                  Сумма лизинга, ₽
-                </label>
-                <Input
-                  value={form.amount}
-                  onChange={(e) => setForm({ ...form, amount: e.target.value })}
-                  placeholder="Например, 5 000 000"
-                  className="bg-background border-border h-12"
-                />
+                <label className="block text-sm text-muted-foreground mb-2">Что нужно бизнесу?</label>
+                <Input value={form.task} onChange={(e) => setForm({ ...form, task: e.target.value })} placeholder="Купить оборудование, получить кредит, субсидия..." className="bg-background border-border h-12" />
               </div>
               <div>
-                <label className="block text-sm text-muted-foreground mb-2">
-                  Комментарий
-                </label>
-                <Textarea
-                  value={form.comment}
-                  onChange={(e) => setForm({ ...form, comment: e.target.value })}
-                  placeholder="Что планируете взять в лизинг?"
-                  className="bg-background border-border min-h-[90px]"
-                />
+                <label className="block text-sm text-muted-foreground mb-2">Детали</label>
+                <Textarea value={form.comment} onChange={(e) => setForm({ ...form, comment: e.target.value })} placeholder="Сумма, сроки, отрасль — любые подробности помогут подобрать лучшее решение" className="bg-background border-border min-h-[90px]" />
               </div>
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full gold-gradient text-primary-foreground font-semibold h-14 hover:opacity-90"
-              >
-                Отправить заявку
+              <Button type="submit" size="lg" className="w-full gold-gradient text-primary-foreground font-semibold h-14 hover:opacity-90">
+                Получить бесплатный разбор
               </Button>
             </form>
           </div>
@@ -557,11 +435,7 @@ const Index = () => {
           </div>
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((f, i) => (
-              <AccordionItem
-                key={i}
-                value={`item-${i}`}
-                className="border border-border/60 rounded-sm px-6 bg-background"
-              >
+              <AccordionItem key={i} value={`item-${i}`} className="border border-border/60 rounded-sm px-6 bg-background">
                 <AccordionTrigger className="text-left text-lg font-medium hover:text-gold hover:no-underline">
                   {f.q}
                 </AccordionTrigger>
@@ -574,17 +448,19 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CONTACTS / FOOTER */}
+      {/* FOOTER */}
       <footer id="contacts" className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <div>
-              <span className="font-display text-2xl font-bold">
-                Лизинг<span className="gold-text-gradient">Про</span>
-              </span>
-              <p className="text-muted-foreground mt-4 leading-relaxed">
-                Помогаем бизнесу получать самые выгодные условия лизинга на
-                территории России.
+              <div className="flex items-center gap-2.5 mb-4">
+                <img src={CROWN} alt="корона" className="w-8 h-8 object-contain" />
+                <span className="font-display text-2xl font-bold">
+                  Центр<span className="gold-text-gradient">Финансов</span>
+                </span>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">
+                Независимый центр финансирования бизнеса. Подбираем лучший инструмент из шести — под вашу задачу и ситуацию.
               </p>
             </div>
             <div className="space-y-4">
@@ -592,8 +468,8 @@ const Index = () => {
               <a href="tel:+74950000000" className="flex items-center gap-3 text-muted-foreground hover:text-gold transition-colors">
                 <Icon name="Phone" size={18} /> +7 (495) 000-00-00
               </a>
-              <a href="mailto:info@leasingpro.ru" className="flex items-center gap-3 text-muted-foreground hover:text-gold transition-colors">
-                <Icon name="Mail" size={18} /> info@leasingpro.ru
+              <a href="mailto:info@centerfin.ru" className="flex items-center gap-3 text-muted-foreground hover:text-gold transition-colors">
+                <Icon name="Mail" size={18} /> info@centerfin.ru
               </a>
               <p className="flex items-center gap-3 text-muted-foreground">
                 <Icon name="MapPin" size={18} /> Москва, Пресненская наб., 12
@@ -611,8 +487,8 @@ const Index = () => {
             </div>
           </div>
           <div className="pt-8 border-t border-border/60 text-sm text-muted-foreground flex flex-col md:flex-row justify-between gap-4">
-            <span>© 2026 ЛизингПро. Все права защищены.</span>
-            <span>Подбор предложений бесплатен и ни к чему не обязывает.</span>
+            <span>© 2026 ЦентрФинансов. Все права защищены.</span>
+            <span>Консультация и подбор — бесплатно и ни к чему не обязывают.</span>
           </div>
         </div>
       </footer>
