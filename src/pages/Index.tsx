@@ -152,7 +152,7 @@ const Index = () => {
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/60">
         <div className="container mx-auto flex items-center justify-start lg:justify-between gap-3 h-[90px] px-4">
-          <a href="#hero" className="flex items-center w-32 lg:w-48 h-[60px] border border-dashed border-border/60 rounded-sm shrink-0">
+          <a href="#hero" className="flex items-center w-40 lg:w-64 h-[60px] border border-dashed border-border/60 rounded-sm shrink-0">
             {/* место для баннера/логотипа */}
           </a>
           <nav className="hidden lg:flex items-center gap-7">
