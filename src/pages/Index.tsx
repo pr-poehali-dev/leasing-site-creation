@@ -3,12 +3,6 @@ import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { toast } from 'sonner';
 
@@ -139,6 +133,7 @@ const partners = [
 const Index = () => {
   const [form, setForm] = useState({ name: '', phone: '', task: '', comment: '' });
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -474,18 +469,32 @@ const Index = () => {
             <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">FAQ</p>
             <h2 className="text-4xl md:text-5xl font-bold">Частые вопросы</h2>
           </div>
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((f, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="border border-border/60 rounded-sm px-6 bg-background">
-                <AccordionTrigger className="text-left text-lg font-medium hover:text-gold hover:no-underline">
-                  {f.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed text-base">
-                  {f.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <div className="space-y-4">
+            {faqs.map((f, i) => {
+              const isOpen = openFaq === i;
+              return (
+                <div key={i} className="border border-border/60 rounded-sm px-6 bg-background">
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaq(isOpen ? null : i)}
+                    className="w-full flex items-center justify-between gap-4 py-5 text-left text-lg font-medium hover:text-gold transition-colors"
+                  >
+                    {f.q}
+                    <Icon
+                      name="ChevronDown"
+                      size={20}
+                      className={`shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  {isOpen && (
+                    <p className="text-muted-foreground leading-relaxed text-base pb-5">
+                      {f.a}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
