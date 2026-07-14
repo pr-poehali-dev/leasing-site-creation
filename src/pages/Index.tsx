@@ -14,9 +14,6 @@ import { toast } from 'sonner';
 const HERO_BG =
   'https://cdn.poehali.dev/projects/e741c96d-fd24-4581-91c1-7b809c60569b/files/eb1e1501-254b-4f03-9f4a-f0007efcc487.jpg';
 
-const CROWN =
-  'https://cdn.poehali.dev/projects/e741c96d-fd24-4581-91c1-7b809c60569b/files/1ff3465d-be4c-444c-9374-7e69c2f8d08b.jpg';
-
 const navLinks = [
   { label: 'Решения', href: '#solutions' },
   { label: 'Как мы работаем', href: '#how' },
@@ -153,11 +150,8 @@ const Index = () => {
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/60">
         <div className="container mx-auto flex items-center justify-between h-20 px-4">
-          <a href="#hero" className="flex items-center gap-2.5">
-            <img src={CROWN} alt="корона" className="w-9 h-9 object-contain" />
-            <span className="font-display text-2xl font-bold tracking-tight">
-              Центр<span className="gold-text-gradient">Финансов</span>
-            </span>
+          <a href="#hero" className="flex items-center w-48 h-10 border border-dashed border-border/60 rounded-sm">
+            {/* место для баннера/логотипа */}
           </a>
           <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((l) => (
@@ -475,11 +469,8 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <div>
-              <div className="flex items-center gap-2.5 mb-4">
-                <img src={CROWN} alt="корона" className="w-8 h-8 object-contain" />
-                <span className="font-display text-2xl font-bold">
-                  Центр<span className="gold-text-gradient">Финансов</span>
-                </span>
+              <div className="w-full h-14 mb-4 border border-dashed border-border/60 rounded-sm">
+                {/* место для баннера/логотипа */}
               </div>
               <p className="text-muted-foreground leading-relaxed">
                 Независимый центр финансирования бизнеса. Подбираем лучший инструмент из шести — под вашу задачу и ситуацию.
