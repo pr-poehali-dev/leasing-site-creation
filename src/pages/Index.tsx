@@ -151,8 +151,8 @@ const Index = () => {
 
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/60">
-        <div className="container mx-auto flex items-center justify-between h-20 px-4">
-          <a href="#hero" className="flex items-center w-48 h-10 border border-dashed border-border/60 rounded-sm">
+        <div className="container mx-auto flex items-center justify-between h-[90px] px-4">
+          <a href="#hero" className="flex items-center w-48 h-[60px] border border-dashed border-border/60 rounded-sm">
             {/* место для баннера/логотипа */}
           </a>
           <nav className="hidden lg:flex items-center gap-7">
@@ -192,7 +192,7 @@ const Index = () => {
       </header>
 
       {/* HERO */}
-      <section id="hero" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section id="hero" className="relative min-h-screen flex items-center pt-[90px] overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_BG})` }} />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/92 to-background/30" />
         <div className="container mx-auto relative z-10 px-4 py-24">
