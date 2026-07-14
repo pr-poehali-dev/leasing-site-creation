@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { toast } from 'sonner';
 
 const HERO_BG =
@@ -137,6 +138,7 @@ const partners = [
 
 const Index = () => {
   const [form, setForm] = useState({ name: '', phone: '', task: '', comment: '' });
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -160,9 +162,32 @@ const Index = () => {
               </a>
             ))}
           </nav>
-          <Button asChild className="gold-gradient text-primary-foreground font-semibold hover:opacity-90">
-            <a href="#apply">Получить решение</a>
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button asChild className="gold-gradient text-primary-foreground font-semibold hover:opacity-90">
+              <a href="#apply">Получить решение</a>
+            </Button>
+            <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="icon" className="lg:hidden border-border/60 shrink-0">
+                  <Icon name="Menu" size={20} />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="bg-background border-border/60 w-72">
+                <nav className="flex flex-col gap-1 mt-10">
+                  {navLinks.map((l) => (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="text-base text-muted-foreground hover:text-gold transition-colors py-3 border-b border-border/40"
+                    >
+                      {l.label}
+                    </a>
+                  ))}
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </header>
 
