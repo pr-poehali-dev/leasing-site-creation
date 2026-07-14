@@ -151,8 +151,8 @@ const Index = () => {
 
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/60">
-        <div className="container mx-auto flex items-center justify-between h-[90px] px-4">
-          <a href="#hero" className="flex items-center w-48 h-[60px] border border-dashed border-border/60 rounded-sm">
+        <div className="container mx-auto flex items-center justify-between gap-3 h-[90px] px-4">
+          <a href="#hero" className="flex items-center w-32 lg:w-48 h-[60px] border border-dashed border-border/60 rounded-sm shrink-0">
             {/* место для баннера/логотипа */}
           </a>
           <nav className="hidden lg:flex items-center gap-7">
@@ -163,7 +163,7 @@ const Index = () => {
             ))}
           </nav>
           <div className="flex items-center gap-3">
-            <Button asChild className="gold-gradient text-primary-foreground font-semibold hover:opacity-90">
+            <Button asChild size="sm" className="gold-gradient text-primary-foreground font-semibold hover:opacity-90 text-xs px-3 h-9 lg:text-sm lg:px-4 lg:h-10">
               <a href="#apply">Получить решение</a>
             </Button>
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
