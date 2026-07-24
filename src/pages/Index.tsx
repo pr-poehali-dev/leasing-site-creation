@@ -222,7 +222,7 @@ const Index = () => {
                   <Icon name="ArrowRight" className="ml-2" size={20} />
                 </a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base border-border hover:border-gold hover:text-gold bg-transparent">
+              <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base border-border hover:border-gold hover:bg-[hsl(var(--gold))] hover:text-primary-foreground bg-transparent">
                 <a href="#solutions">Все решения</a>
               </Button>
             </div>
