@@ -5,9 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import logo from '@/assets/logo.png';
-
-const HERO_BG =
-  'https://cdn.poehali.dev/projects/e741c96d-fd24-4581-91c1-7b809c60569b/files/eb1e1501-254b-4f03-9f4a-f0007efcc487.jpg';
+import './Index.css';
 
 const navLinks = [
   { label: 'Решения', href: '#solutions' },
@@ -183,25 +181,25 @@ const Index = () => {
 
       {/* HERO */}
       <section id="hero" className="relative min-h-screen flex items-center pt-[90px] overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_BG})` }} />
+        <div className="absolute inset-0 bg-cover bg-center hero-bg-image" />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/92 to-background/30" />
         <div className="container mx-auto relative z-10 px-4 py-24">
           <div className="max-w-3xl">
             <p className="animate-fade-up text-gold tracking-[0.3em] uppercase text-xs mb-6">
               Центр роста и масштабирования бизнеса
             </p>
-            <h1 className="animate-fade-up text-4xl md:text-6xl font-bold leading-[1.08] mb-6" style={{ animationDelay: '0.1s' }}>
+            <h1 className="animate-fade-up fade-up-delay-1 text-4xl md:text-6xl font-bold leading-[1.08] mb-6">
               Хотите{' '}
               <span className="gold-text-gradient">масштабировать бизнес</span>{' '}
               и выйти на новый уровень?
             </h1>
-            <p className="animate-fade-up text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed" style={{ animationDelay: '0.2s' }}>
+            <p className="animate-fade-up fade-up-delay-2 text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed">
               Получаете финансирование дешевле банка, снижаете налоги, понимаете конкурентов
               и выходите на рынок с позицией, где вы — единственный выбор.
             </p>
 
             {/* Problem cards */}
-            <div className="animate-fade-up grid grid-cols-2 gap-3 max-w-xl mb-10" style={{ animationDelay: '0.25s' }}>
+            <div className="animate-fade-up fade-up-delay-3 grid grid-cols-2 gap-3 max-w-xl mb-10">
               {problems.map((p) => (
                 <div key={p.text} className="flex items-start gap-3 bg-card/60 border border-border/60 rounded-sm px-4 py-3 backdrop-blur-sm">
                   <Icon name={p.icon} className="text-gold shrink-0 mt-0.5" size={16} />
@@ -210,7 +208,7 @@ const Index = () => {
               ))}
             </div>
 
-            <div className="animate-fade-up flex flex-wrap gap-4" style={{ animationDelay: '0.3s' }}>
+            <div className="animate-fade-up fade-up-delay-4 flex flex-wrap gap-4">
               <Button asChild size="lg" className="gold-gradient text-primary-foreground font-semibold text-base h-14 px-8 hover:opacity-90">
                 <a href="#apply">
                   Получить бесплатный разбор
@@ -221,7 +219,7 @@ const Index = () => {
                 <a href="#solutions">Все решения</a>
               </Button>
             </div>
-            <p className="animate-fade-up mt-5 text-sm text-muted-foreground" style={{ animationDelay: '0.4s' }}>
+            <p className="animate-fade-up fade-up-delay-5 mt-5 text-sm text-muted-foreground">
               Консультация и подбор — бесплатно и ни к чему не обязывают
             </p>
           </div>

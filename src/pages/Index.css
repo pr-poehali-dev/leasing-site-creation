@@ -1,0 +1,23 @@
+.hero-bg-image {
+  background-image: url('https://cdn.poehali.dev/projects/e741c96d-fd24-4581-91c1-7b809c60569b/files/eb1e1501-254b-4f03-9f4a-f0007efcc487.jpg');
+}
+
+.fade-up-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.fade-up-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.fade-up-delay-3 {
+  animation-delay: 0.25s;
+}
+
+.fade-up-delay-4 {
+  animation-delay: 0.3s;
+}
+
+.fade-up-delay-5 {
+  animation-delay: 0.4s;
+}
