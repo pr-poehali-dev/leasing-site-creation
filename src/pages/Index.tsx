@@ -3,7 +3,6 @@ import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { toast } from 'sonner';
 import logo from '@/assets/logo.png';
 
@@ -133,7 +132,6 @@ const partners = [
 
 const Index = () => {
   const [form, setForm] = useState({ name: '', phone: '', task: '', comment: '' });
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -161,27 +159,24 @@ const Index = () => {
             <Button asChild size="sm" className="gold-gradient text-primary-foreground font-semibold hover:opacity-90 text-xs px-3 h-9 lg:text-sm lg:px-4 lg:h-10">
               <a href="#apply">Получить решение</a>
             </Button>
-            <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="lg:hidden border-border/60 shrink-0">
-                  <Icon name="Menu" size={20} />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="bg-background border-border/60 w-72">
-                <nav className="flex flex-col gap-1 mt-10">
-                  {navLinks.map((l) => (
-                    <a
-                      key={l.href}
-                      href={l.href}
-                      onClick={() => setMenuOpen(false)}
-                      className="text-base text-muted-foreground hover:text-gold transition-colors py-3 border-b border-border/40"
-                    >
-                      {l.label}
-                    </a>
-                  ))}
-                </nav>
-              </SheetContent>
-            </Sheet>
+            <details className="group relative lg:hidden">
+              <summary
+                className="list-none cursor-pointer inline-flex items-center justify-center h-9 w-9 rounded-md border border-border/60 shrink-0 marker:content-none [&::-webkit-details-marker]:hidden"
+              >
+                <Icon name="Menu" size={20} />
+              </summary>
+              <nav className="absolute right-0 top-12 w-60 bg-background border border-border/60 rounded-sm shadow-lg flex flex-col p-2 z-50">
+                {navLinks.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    className="text-sm text-muted-foreground hover:text-gold transition-colors px-3 py-2.5 border-b border-border/40 last:border-b-0"
+                  >
+                    {l.label}
+                  </a>
+                ))}
+              </nav>
+            </details>
           </div>
         </div>
       </header>
