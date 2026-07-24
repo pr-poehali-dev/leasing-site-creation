@@ -134,7 +134,6 @@ const partners = [
 const Index = () => {
   const [form, setForm] = useState({ name: '', phone: '', task: '', comment: '' });
   const [menuOpen, setMenuOpen] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -471,30 +470,21 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-bold">Частые вопросы</h2>
           </div>
           <div className="space-y-4">
-            {faqs.map((f, i) => {
-              const isOpen = openFaq === i;
-              return (
-                <div key={i} className="border border-border/60 rounded-sm px-6 bg-background">
-                  <button
-                    type="button"
-                    onClick={() => setOpenFaq(isOpen ? null : i)}
-                    className="w-full flex items-center justify-between gap-4 py-5 text-left text-lg font-medium hover:text-gold transition-colors"
-                  >
-                    {f.q}
-                    <Icon
-                      name="ChevronDown"
-                      size={20}
-                      className={`shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-                    />
-                  </button>
-                  {isOpen && (
-                    <p className="text-muted-foreground leading-relaxed text-base pb-5">
-                      {f.a}
-                    </p>
-                  )}
-                </div>
-              );
-            })}
+            {faqs.map((f, i) => (
+              <details key={i} className="group border border-border/60 rounded-sm px-6 bg-background">
+                <summary className="list-none flex items-center justify-between gap-4 py-5 text-left text-lg font-medium hover:text-gold transition-colors cursor-pointer marker:content-none [&::-webkit-details-marker]:hidden">
+                  {f.q}
+                  <Icon
+                    name="ChevronDown"
+                    size={20}
+                    className="shrink-0 transition-transform group-open:rotate-180"
+                  />
+                </summary>
+                <p className="text-muted-foreground leading-relaxed text-base pb-5">
+                  {f.a}
+                </p>
+              </details>
+            ))}
           </div>
         </div>
       </section>
