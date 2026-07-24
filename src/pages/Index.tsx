@@ -194,7 +194,7 @@ const Index = () => {
         <div className="container mx-auto relative z-10 px-4 py-24">
           <div className="max-w-3xl">
             <p className="animate-fade-up text-gold tracking-[0.3em] uppercase text-xs mb-6">
-              Центр финансирования бизнеса
+              Центр роста и масштабирования бизнеса
             </p>
             <h1 className="animate-fade-up text-4xl md:text-6xl font-bold leading-[1.08] mb-6" style={{ animationDelay: '0.1s' }}>
               Хотите{' '}
@@ -508,7 +508,7 @@ const Index = () => {
                 {/* место для баннера/логотипа */}
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                Независимый центр финансирования бизнеса. Подбираем лучший инструмент из шести — под вашу задачу и ситуацию.
+                Независимый центр роста и масштабирования бизнеса. Подбираем лучший инструмент из шести — под вашу задачу и ситуацию.
               </p>
             </div>
             <div className="space-y-4">
