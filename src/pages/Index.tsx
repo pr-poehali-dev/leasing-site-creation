@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { toast } from 'sonner';
+import logo from '@/assets/logo.png';
 
 const HERO_BG =
   'https://cdn.poehali.dev/projects/e741c96d-fd24-4581-91c1-7b809c60569b/files/eb1e1501-254b-4f03-9f4a-f0007efcc487.jpg';
@@ -147,8 +148,8 @@ const Index = () => {
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/60">
         <div className="container mx-auto flex items-center justify-start lg:justify-between gap-3 h-[90px] px-4">
-          <a href="#hero" className="flex items-center w-40 lg:w-64 h-[60px] border border-dashed border-border/60 rounded-sm shrink-0">
-            {/* место для баннера/логотипа */}
+          <a href="#hero" className="flex items-center w-40 lg:w-64 h-[60px] shrink-0">
+            <img src={logo} alt="МосПромФинанс" className="h-full w-full object-contain object-left" />
           </a>
           <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((l) => (
