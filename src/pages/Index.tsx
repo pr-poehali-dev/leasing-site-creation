@@ -487,9 +487,6 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <div>
-              <div className="w-full h-14 mb-4 border border-dashed border-border/60 rounded-sm">
-                {/* место для баннера/логотипа */}
-              </div>
               <p className="text-muted-foreground leading-relaxed">
                 Независимый центр роста и масштабирования бизнеса. Подбираем лучший инструмент из шести — под вашу задачу и ситуацию.
               </p>
