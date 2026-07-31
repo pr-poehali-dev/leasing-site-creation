@@ -259,7 +259,7 @@ const Index = () => {
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-14 px-8 text-base text-foreground border-border hover:border-gold hover:text-gold bg-transparent"
+                className="h-14 px-8 text-base text-foreground border-border hover:border-gold hover:bg-[hsl(var(--gold))] hover:text-primary-foreground bg-transparent"
               >
                 <a href="#services">Наши услуги</a>
               </Button>
