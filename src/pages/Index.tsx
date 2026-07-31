@@ -167,7 +167,7 @@ const Index = () => {
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
         <div className="container mx-auto flex items-center gap-[10px] lg:justify-between lg:gap-3 h-20 px-4">
-          <a href="#hero" className="flex items-center w-[220px] h-[50px] sm:w-[260px] sm:h-[60px] shrink min-w-0">
+          <a href="#hero" className="flex items-center w-[260px] h-[60px] sm:w-[260px] sm:h-[60px] shrink min-w-0">
             <img src={logo} alt="МосПромФинанс" className="h-full w-full object-contain object-left" />
           </a>
           <nav className="hidden lg:flex items-center gap-8">
@@ -182,7 +182,7 @@ const Index = () => {
             ))}
           </nav>
           <div className="flex items-center gap-[10px]">
-            <Button asChild size="sm" className="shrink-0 h-9 px-3 text-xs sm:h-10 sm:px-4 sm:text-sm gold-gradient text-primary-foreground font-semibold hover:opacity-90 whitespace-nowrap">
+            <Button asChild size="sm" className="shrink-0 h-10 px-4 text-sm sm:h-10 sm:px-4 sm:text-sm gold-gradient text-primary-foreground font-semibold hover:opacity-90 whitespace-nowrap">
               <a href="#apply">Оставить заявку</a>
             </Button>
             <details className="relative lg:hidden">
