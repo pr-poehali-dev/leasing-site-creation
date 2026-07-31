@@ -3,13 +3,8 @@ import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 import { toast } from 'sonner';
+import logo from '@/assets/logo.png';
 
 const HERO_BG =
   'https://cdn.poehali.dev/projects/e741c96d-fd24-4581-91c1-7b809c60569b/files/eb1e1501-254b-4f03-9f4a-f0007efcc487.jpg';
@@ -171,16 +166,9 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
-        <div className="container mx-auto flex items-center justify-between h-20 px-4">
-          <a href="#hero" className="flex items-center gap-2">
-            <img
-              src="https://cdn.poehali.dev/projects/e741c96d-fd24-4581-91c1-7b809c60569b/files/1ff3465d-be4c-444c-9374-7e69c2f8d08b.jpg"
-              alt="корона"
-              className="w-9 h-9 object-contain"
-            />
-            <span className="font-display text-2xl font-bold tracking-tight">
-              Лизинг<span className="gold-text-gradient">Про</span>
-            </span>
+        <div className="container mx-auto flex items-center justify-between gap-3 h-20 px-4">
+          <a href="#hero" className="flex items-center h-12 w-40 shrink-0">
+            <img src={logo} alt="МосПромФинанс" className="h-full w-full object-contain object-left" />
           </a>
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((l) => (
@@ -193,9 +181,33 @@ const Index = () => {
               </a>
             ))}
           </nav>
-          <Button asChild className="gold-gradient text-primary-foreground font-semibold hover:opacity-90">
-            <a href="#apply">Оставить заявку</a>
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button asChild className="hidden sm:inline-flex gold-gradient text-primary-foreground font-semibold hover:opacity-90">
+              <a href="#apply">Оставить заявку</a>
+            </Button>
+            <details className="relative lg:hidden">
+              <summary className="list-none cursor-pointer inline-flex items-center justify-center h-10 w-10 rounded-sm border border-border/60 marker:content-none [&::-webkit-details-marker]:hidden">
+                <Icon name="Menu" size={20} />
+              </summary>
+              <nav className="absolute right-0 top-12 w-60 bg-card border border-border/60 rounded-sm shadow-lg flex flex-col p-2 z-50">
+                {navLinks.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    className="text-sm text-muted-foreground hover:text-gold transition-colors px-3 py-2.5 border-b border-border/40 last:border-b-0"
+                  >
+                    {l.label}
+                  </a>
+                ))}
+                <a
+                  href="#apply"
+                  className="mt-2 text-center text-sm font-semibold gold-gradient text-primary-foreground rounded-sm px-3 py-2.5"
+                >
+                  Оставить заявку
+                </a>
+              </nav>
+            </details>
+          </div>
         </div>
       </header>
 
@@ -247,7 +259,7 @@ const Index = () => {
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-14 px-8 text-base border-border hover:border-gold hover:text-gold bg-transparent"
+                className="h-14 px-8 text-base text-foreground border-border hover:border-gold hover:text-gold bg-transparent"
               >
                 <a href="#services">Наши услуги</a>
               </Button>
@@ -555,22 +567,22 @@ const Index = () => {
             <p className="text-gold tracking-[0.3em] uppercase text-xs mb-4">FAQ</p>
             <h2 className="text-4xl md:text-5xl font-bold">Частые вопросы</h2>
           </div>
-          <Accordion type="single" collapsible className="space-y-4">
+          <div className="space-y-4">
             {faqs.map((f, i) => (
-              <AccordionItem
+              <details
                 key={i}
-                value={`item-${i}`}
-                className="border border-border/60 rounded-sm px-6 bg-background"
+                className="group border border-border/60 rounded-sm px-6 bg-background"
               >
-                <AccordionTrigger className="text-left text-lg font-medium hover:text-gold hover:no-underline">
+                <summary className="list-none cursor-pointer flex items-center justify-between gap-4 py-5 text-left text-lg font-medium hover:text-gold marker:content-none [&::-webkit-details-marker]:hidden">
                   {f.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed text-base">
+                  <Icon name="ChevronDown" className="shrink-0 transition-transform group-open:rotate-180" size={20} />
+                </summary>
+                <p className="text-muted-foreground leading-relaxed text-base pb-5">
                   {f.a}
-                </AccordionContent>
-              </AccordionItem>
+                </p>
+              </details>
             ))}
-          </Accordion>
+          </div>
         </div>
       </section>
 
@@ -579,9 +591,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <div>
-              <span className="font-display text-2xl font-bold">
-                Лизинг<span className="gold-text-gradient">Про</span>
-              </span>
+              <img src={logo} alt="МосПромФинанс" className="h-10 w-auto object-contain object-left" />
               <p className="text-muted-foreground mt-4 leading-relaxed">
                 Помогаем бизнесу получать самые выгодные условия лизинга на
                 территории России.
