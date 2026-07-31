@@ -167,7 +167,7 @@ const Index = () => {
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
         <div className="container mx-auto flex items-center gap-[10px] lg:justify-between lg:gap-3 h-20 px-4">
-          <a href="#hero" className="flex items-center w-[220px] h-[50px] sm:w-[320px] sm:h-[74px] shrink min-w-0">
+          <a href="#hero" className="flex items-center w-[220px] h-[50px] sm:w-[260px] sm:h-[60px] shrink min-w-0">
             <img src={logo} alt="МосПромФинанс" className="h-full w-full object-contain object-left" />
           </a>
           <nav className="hidden lg:flex items-center gap-8">
