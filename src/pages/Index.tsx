@@ -167,7 +167,7 @@ const Index = () => {
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
         <div className="container mx-auto flex items-center justify-between gap-3 h-20 px-4">
-          <a href="#hero" className="flex items-center h-12 w-40 shrink-0">
+          <a href="#hero" className="flex items-center w-[260px] h-[60px] shrink-0">
             <img src={logo} alt="МосПромФинанс" className="h-full w-full object-contain object-left" />
           </a>
           <nav className="hidden lg:flex items-center gap-8">
@@ -591,8 +591,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <div>
-              <img src={logo} alt="МосПромФинанс" className="h-10 w-auto object-contain object-left" />
-              <p className="text-muted-foreground mt-4 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 Помогаем бизнесу получать самые выгодные условия лизинга на
                 территории России.
               </p>
