@@ -166,7 +166,7 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
-        <div className="container mx-auto flex items-center justify-between gap-3 h-20 px-4">
+        <div className="container mx-auto flex items-center gap-[10px] lg:justify-between lg:gap-3 h-20 px-4">
           <a href="#hero" className="flex items-center w-[150px] h-[35px] sm:w-[260px] sm:h-[60px] shrink-0">
             <img src={logo} alt="МосПромФинанс" className="h-full w-full object-contain object-left" />
           </a>
@@ -181,7 +181,7 @@ const Index = () => {
               </a>
             ))}
           </nav>
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-[10px]">
             <Button asChild size="sm" className="shrink-0 h-9 px-3 text-xs sm:h-10 sm:px-4 sm:text-sm gold-gradient text-primary-foreground font-semibold hover:opacity-90 whitespace-nowrap">
               <a href="#apply">Оставить заявку</a>
             </Button>
